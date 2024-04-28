@@ -48,3 +48,43 @@ def sayGoodBye():
   print('Hello python...')
 
 sayGoodBye() 
+
+
+print("====== Method class =======")
+class Pesawat:
+  def __init__(self, jenis, bobot, kecepatan):
+    self.jenis = jenis
+    self.bobot = bobot
+    self.kecepatan = kecepatan
+    
+  """
+  static Method (sama seperti function
+  biasa, tidak terikat oleh instance
+  class, hanya saja didefinisikan didalam
+  class) 
+  """
+  @staticmethod
+  def kondisi():
+    print("~ Kondisi pesawat baik, pesawat siap terbang...")
+    
+  @classmethod
+  def persiapan(cls):
+    print("~ Pesawat akan terbang dalam hitung mundur 1 menit...")
+  
+  def tambah_kecepatan(self):
+      self.kecepatan += 15
+      
+  def berhenti(self):
+    self.kecepatan = 0
+    
+      
+Pesawat.kondisi() # pemanggilan method static tidak perlu membuat instance classnya
+Pesawat.persiapan()
+air_asia = Pesawat('Air asia', '100kg', 20)
+print(f"Sebelum tambah kecepatan : ", air_asia.kecepatan)
+
+air_asia.tambah_kecepatan()
+print(f"Setelah tambah kecepatan : ", air_asia.kecepatan)
+
+air_asia.berhenti()
+print(f"Setelah berhenti, kecepatan : ", air_asia.kecepatan)
